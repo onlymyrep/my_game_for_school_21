@@ -24,6 +24,7 @@
             color: white;
             transition: all 0.5s ease;
             overflow-x: hidden;
+            padding: 10px; /* Добавлено для отступов по краям */
         }
 
         .container {
@@ -45,7 +46,8 @@
             display: grid;
             gap: 8px;
             margin: 0 auto;
-            width: 100%;
+            width: calc(100% - 20px); /* Исправлено для 7 уровня */
+            max-width: 100%;
             perspective: 1000px;
         }
 
@@ -54,7 +56,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: calc(20px + 2vmin);
+            font-size: calc(15px + 1.5vmin); /* Уменьшен размер шрифта */
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             cursor: pointer;
@@ -78,7 +80,7 @@
 
         .cell.selected {
             background: rgba(160, 160, 160, 0.3) !important;
-            box-shadow: 0 0 20px #00ffff, 0 0 10px #00ffff inset;
+            box-shadow: 0 0 20px var(--neon-color), 0 0 10px var(--neon-color) inset;
         }
 
         #message {
@@ -157,7 +159,11 @@
         /* Для мобильных устройств */
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; }
-            .cell { font-size: calc(16px + 2vmin); }
+            .cell { font-size: calc(12px + 1.5vmin); }
+            .board {
+                gap: 5px;
+                width: calc(100% - 10px);
+            }
         }
     </style>
 </head>
@@ -419,6 +425,12 @@
 
         function toggleTheme() {
             document.body.classList.toggle('dark-mode');
+            // Исправлено переключение темы
+            if (!document.body.classList.contains('dark-mode')) {
+                document.body.className = `theme-${state.level}`;
+            } else {
+                document.body.classList.add('theme-dark');
+            }
         }
 
         function activateEasterEgg() {
