@@ -44,7 +44,7 @@
 
         .board {
             display: grid;
-            gap: 12px;
+            gap: 14px;
             margin: 0 auto;
             width: calc(100% - 20px); /* Исправлено для 7 уровня */
             max-width: 100%;
@@ -56,7 +56,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: calc(20px + 1.5vmin); /* Уменьшен размер шрифта */
+            font-size: calc(24px + 1.5vmin); /* Уменьшен размер шрифта */
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             cursor: pointer;
@@ -159,9 +159,9 @@
         /* Для мобильных устройств */
         @media (max-width: 600px) {
             h1 { font-size: 1.5rem; }
-            .cell { font-size: calc(12px + 1.5vmin); }
+            .cell { font-size: calc(15px + 1.5vmin); }
             .board {
-                gap: 5px;
+                gap: 8px;
                 width: calc(100% - 10px);
             }
         }
